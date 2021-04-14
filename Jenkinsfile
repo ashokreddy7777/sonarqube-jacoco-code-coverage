@@ -34,7 +34,7 @@ pipeline {
                 }
             }*/
             steps {
-                runSonar("Test", ".")
+                runSonar("Test-codec", ".")
             }
         }
         /*stage('cleanup') {
