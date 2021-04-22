@@ -17,6 +17,8 @@ pipeline {
             steps {
                 sh '''
                   "${gradleHome}/bin/gradle" build
+                  "${gradleHome}/bin/gradle" test
+                  "${gradleHome}/bin/gradle" jacocoTestReport
                 '''
             }
         }
