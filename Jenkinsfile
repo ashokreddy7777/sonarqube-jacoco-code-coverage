@@ -15,11 +15,7 @@ pipeline {
                 gradleHome = tool 'gradle'
             }
             steps {
-                sh '''
-                  "${gradleHome}/bin/gradle" build
-                  "${gradleHome}/bin/gradle" test
-                  "${gradleHome}/bin/gradle" jacocoTestReport
-                '''
+                sh "${gradleHome}/bin/gradle build"
             }
         }
         stage('sonar_analysis') {
