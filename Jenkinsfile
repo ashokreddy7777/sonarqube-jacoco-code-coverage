@@ -20,26 +20,15 @@ pipeline {
         }
         stage('sonar_analysis') {
             when { environment name: 'sonar_analysis', value: 'true'}
-            /*
-            environment {
-                scannerHome = tool 'sonar-scanner'
-            }
-            steps {
-                withSonarQubeEnv('sonar'){
-                    sh '''
-                       "${scannerHome}/bin/sonar-scanner" -Dsonar.java.binaries=. -Dsonar.projectKey=test -Dsonar.sourceEncoding=UTF-8 -Dsonar.sources=.
-                    '''  
-                }
-            }*/
             steps {
                 runSonar()
             }
         }
-        /*stage('cleanup') {
+        stage('cleanup') {
             steps {
                 cleanWs()
             }
-        }*/
+        }
     }
     post {
         failure {
